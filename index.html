@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WeatherIO</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+    <header>
+        <h1>WeatherIO </h1>
+
+    </header>
+
+    <main>
+        <section class="search-bar">
+            <input type="text" placeholder="Write a name of city.">
+            <button>Check weather!</button>
+            <p class="error">Can't find this location :(</p>
+        
+        </section>
+
+        <section class="panel-wrapper">
+           
+            <div class="temp-box panel">
+                <h2 class="city-name"></h2> 
+                <p class="date"></p>
+                <div class="icon-weather">
+                    <img src="" alt="Weather icon">
+                    <span class="temp"></span>
+                </div>    
+                <p class="temp-desc"></p>
+                
+            </div>
+
+            <div class="app-right panel">
+                <p>Feels like: <span class="temp-feel"></span></p>
+                <p>Maximum: <span class="temp-max"></span></p>
+                <p>Minimum: <span class="temp-min"></span></p>
+                <p>Pressure: <span class="pressure"></span></p>
+                <p>Humidity: <span class="humidity"></span></p>
+                <p>Wind: <span class="wind"></span></p>
+            </div>
+             
+        </section> 
+    </main>
+
+    <footer>
+        <p>Projekt WSB 2022</p>
+    </footer>
+    
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
