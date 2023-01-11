@@ -21,8 +21,7 @@ const apiKey = '&appid=2edb0ca1cc5adb11398da94d57e15303'
 const apiUnits = '&units=metric'
 const apiLang = ''
 
-
-
+//calculating local time based on timezone
 const timeLocal = (offset) =>{
     date = new Date()
     localTime = date.getTime()
@@ -33,6 +32,8 @@ const timeLocal = (offset) =>{
     return newDate
 }
 
+//function which fetches data from an API and inserts it into the textContent of an elements
+
 const checkWeather = () =>{
 
     const apiCity = inputEl.value || "Barcelona"
@@ -41,38 +42,31 @@ const checkWeather = () =>{
 
     console.log(url)
 
-    axios.get(url).then(response => {
-        console.log(response.data) 
-        errorMsg.style.display = 'none'
-        
-        wind.textContent = `${response.data.wind.speed} m/s`
-        humidity.textContent = `${response.data.main.humidity} %`
-        pressure.textContent = `${response.data.main.pressure} hPa`
-        tempFeel.textContent = `${Math.floor(response.data.main.feels_like)} °C`
-        tempMax.textContent = `${Math.floor(response.data.main.temp_max)} °C`
-        tempMin.textContent = `${Math.floor(response.data.main.temp_min)} °C`
-        tempDesc.textContent = `${response.data.weather[0].description}`
-        cityName.textContent = `${response.data.name}, ${response.data.sys.country}`
-        dateEl.textContent = `${timeLocal(response.data.timezone)}`
-        temp.textContent = `${Math.floor(response.data.main.temp)} °C`
-        tempImg.src = `http://openweathermap.org/img/wn/${response.data.weather[0].icon}.png`
-        panelEl.style.display = 'flex'
-        
+    fetch(url)
+        .then(res => res.json())
+        .then(data => {
+            console.log(data)
+            errorMsg.style.display = 'none'
+            wind.textContent = `${data.wind.speed} m/s`
+            humidity.textContent = `${data.main.humidity} %`
+            pressure.textContent = `${data.main.pressure} hPa`
+            tempFeel.textContent = `${Math.floor(data.main.feels_like)} °C`
+            tempMax.textContent = `${Math.floor(data.main.temp_max)} °C`
+            tempMin.textContent = `${Math.floor(data.main.temp_min)} °C`
+            tempDesc.textContent = `${data.weather[0].description}`
+            cityName.textContent = `${data.name}, ${data.sys.country}`
+            dateEl.textContent = `${timeLocal(data.timezone)}`
+            temp.textContent = `${Math.floor(data.main.temp)} °C`
+            tempImg.src = `http://openweathermap.org/img/wn/${data.weather[0].icon}.png`
+            panelEl.style.display = 'flex'
+        }).catch(error => {
 
-    }).catch(error => {
-        if(error.response.data.cod === '404'){
             panelEl.style.display = 'none'
             errorMsg.style.display = 'flex'
+            tempImg.src = ''
 
-        }
-
-        [cityName, temp, tempFeel,tempDesc,pressure,humidity,wind,dateEl].forEach(el => {
-            el.textContent = ''
+        }).finally(() => {
+            inputEl.value = ''
         })
-        tempImg.src = ''
-    }).finally( () => {
-        inputEl.value = ''
-    })
 }
-
 buttonEl.addEventListener('click', checkWeather)

@@ -1,0 +1,156 @@
+*{
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+}
+
+//layout
+
+body,header,footer{
+    width: 100%;
+}
+
+body,
+h1,
+.temp-box h2{
+    margin: 0;
+}
+
+footer,
+header,
+.search-bar,
+.temp-desc{
+    text-align: center;
+}
+
+footer,
+button,
+header,
+.panel{
+    background-color: #60AFFF;
+}
+
+main,
+input,
+.error,
+.temp-box p,
+.app-right p{
+    margin: 5px 0;
+}
+
+//typography
+
+.date,
+.temp-desc{
+    font-weight: 300;
+}
+
+.temp,
+h1,
+h2,
+.app-right span
+{
+    font-weight: 700;
+}
+
+.temp{
+    font-size: 1.8rem;
+}
+
+body{
+    height: 100vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    background-color: #EBF9FF;
+    font-size: 16px;
+    color: whitesmoke;
+    header{
+        padding: 20px 0;
+    }
+
+    .search-bar{
+        input{
+            width: 72%;
+            min-width: 150px;
+            padding: .4em .3em;
+            margin-bottom: 1em;
+        }
+        
+        input:focus{
+            border: none;
+        }
+
+        button{
+            padding: 5px 10px;
+            border: none;
+            color: inherit;
+            border-radius: 10px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 1px 1px 1px 1px lightgrey;
+            transition: all 1ms ease-in;
+        }
+
+        button:active{
+            transform: translateY(1px);
+            box-shadow: 0px 1px 1px 1px lightgrey;
+            height: 27.5px;
+        }
+        
+        .error{
+            display: none;
+            color: #F6839C;
+            font-size: 12px;
+        }
+    }
+
+    .panel-wrapper {
+        display: none;
+        justify-content: center;
+        align-items: center;
+        text-shadow: 0px 0px 0.2 px black;
+        max-width: 500px;
+
+        .temp-box{
+            justify-content: space-between;
+
+            img{
+                width: 30%;
+                margin-right: 15px;
+            }
+
+            .icon-weather{
+                display: flex;
+                align-items: center;
+                padding: 5px 0px;
+            }
+        }
+
+        .app-right{
+            padding-left: 15px;
+        }
+
+        .panel{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            min-width: 220px;
+            min-height: 220px;
+            margin: 10px 20px;
+            border-radius: 10px;
+            padding: 10px;
+            box-shadow: 1px 1px 1px 1px lightgrey;
+        }
+
+    } 
+    
+
+}
+
+@media (max-width: 490px){
+    .panel-wrapper{
+        flex-wrap: wrap;
+    }
+}
