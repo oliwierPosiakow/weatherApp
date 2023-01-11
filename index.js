@@ -1,5 +1,5 @@
 const inputEl = document.querySelector('input')
-const buttonEl = document.querySelector('button')
+const buttonEl = document.getElementById('check-weather')
 const errorMsg = document.querySelector('.error')
 const panelEl = document.querySelector('.panel-wrapper')
 

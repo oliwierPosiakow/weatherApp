@@ -58,32 +58,37 @@ h2,
 }
 
 body{
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-direction: column;
     background-color: #EBF9FF;
-    font-size: 16px;
+    font-size: 1rem;
     color: whitesmoke;
+
     header{
-        padding: 20px 0;
+        padding: 1.3em 0;
     }
 
     .search-bar{
+        text-align: center;
         input{
             width: 72%;
             min-width: 150px;
             padding: .4em .3em;
             margin-bottom: 1em;
+            border-radius: 5px;
+            border: 1px solid black;
         }
         
         input:focus{
-            border: none;
+            outline: none;
+            border: 1.5px solid black;
         }
 
-        button{
-            padding: 5px 10px;
+        #check-weather{
+            padding: .3em .4em;
             border: none;
             color: inherit;
             border-radius: 10px;
@@ -92,17 +97,18 @@ body{
             box-shadow: 1px 1px 1px 1px lightgrey;
             transition: all 1ms ease-in;
         }
-
-        button:active{
+        #check-weather:active{
             transform: translateY(1px);
             box-shadow: 0px 1px 1px 1px lightgrey;
-            height: 27.5px;
+            height: 30.5px;
         }
-        
+
         .error{
+            width: 41%;
+            margin: .3em auto;
             display: none;
             color: #F6839C;
-            font-size: 12px;
+            font-size: .8rem;
         }
     }
 
@@ -112,13 +118,15 @@ body{
         align-items: center;
         text-shadow: 0px 0px 0.2 px black;
         max-width: 500px;
+        margin-top: 1em;
+        flex-wrap: wrap;
 
         .temp-box{
             justify-content: space-between;
 
             img{
                 width: 30%;
-                margin-right: 15px;
+                margin-right: 1em;
             }
 
             .icon-weather{
@@ -129,7 +137,7 @@ body{
         }
 
         .app-right{
-            padding-left: 15px;
+            padding-left: .9em;
         }
 
         .panel{
@@ -138,19 +146,10 @@ body{
             justify-content: center;
             min-width: 220px;
             min-height: 220px;
-            margin: 10px 20px;
+            margin: .3em;
             border-radius: 10px;
-            padding: 10px;
+            padding: .625em;
             box-shadow: 1px 1px 1px 1px lightgrey;
         }
-
     } 
-    
-
-}
-
-@media (max-width: 490px){
-    .panel-wrapper{
-        flex-wrap: wrap;
-    }
 }
